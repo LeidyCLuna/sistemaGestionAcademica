@@ -1,0 +1,40 @@
+package com.usura.sga.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name = "matricula")
+public class MatriculaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idMatricula;
+
+    private int año;
+
+    private int periodo;
+
+    private int nivel;
+    @Column(name = "fecha_matricula")
+    private Date fechaMatricula;
+
+    @ManyToOne
+    @JoinColumn(name = "idprograma")
+    private ProgramaEntity idPrograma;
+
+    @ManyToOne
+    @JoinColumn(name = "idcurso")
+    private CursoEntity idCurso;
+
+    @ManyToOne
+    @JoinColumn(name = "idestudiante")
+    private EstudianteEntity idEstudiante;
+}
