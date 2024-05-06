@@ -19,7 +19,7 @@ public class RabbitQueueSender {
 
     @Autowired
     private RabbitBindingRoute rabbitBindingRoute;
-    // justar al dto
+    /// justar al dto
    /* public void send(ListaPreguntasDto preguntaDto){
         productorRabbitDiscordia.convertAndSend(rabbitBindingRoute.getExchange(),rabbitBindingRoute.getRoutingKey(),preguntaDto,confirmaCorrelation);
     }*/

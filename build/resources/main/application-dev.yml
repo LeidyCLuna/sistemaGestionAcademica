@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/bdsistemagestionacademica?characterEncoding=utf8&serverTimezone=UTC&useSSL=false
