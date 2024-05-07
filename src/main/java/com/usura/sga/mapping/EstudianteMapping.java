@@ -4,6 +4,8 @@ import com.usura.sga.dto.EstudianteDto;
 import com.usura.sga.entity.EstudianteEntity;
 import lombok.AllArgsConstructor;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 public class EstudianteMapping {
 
@@ -11,8 +13,10 @@ public class EstudianteMapping {
             EstudianteDto estudianteDto) {
         return EstudianteEntity.builder()
                 .idestudiante(estudianteDto.getIdEstudiante())
-                .nombresEstudiante(estudianteDto.getNombresEstudiante())
-                .apellidosEstudiante(estudianteDto.getApellidosEstudiante())
+                .tipoDocumento(estudianteDto.getTipoDocumento())
+                .documento(estudianteDto.getDocumento())
+                .nombres(estudianteDto.getNombres())
+                .apellidos(estudianteDto.getApellidos())
                 .direccion(estudianteDto.getDireccion())
                 .telefono(estudianteDto.getTelefono())
                 .sexo(estudianteDto.getSexo())
@@ -23,8 +27,10 @@ public class EstudianteMapping {
             EstudianteEntity estudianteEntity) {
         return EstudianteDto.builder()
                 .idEstudiante(estudianteEntity.getIdestudiante())
-                .nombresEstudiante(estudianteEntity.getNombresEstudiante())
-                .apellidosEstudiante(estudianteEntity.getApellidosEstudiante())
+                .tipoDocumento(estudianteEntity.getTipoDocumento())
+                .documento(estudianteEntity.getDocumento())
+                .nombres(estudianteEntity.getNombres())
+                .apellidos(estudianteEntity.getApellidos())
                 .direccion(estudianteEntity.getDireccion())
                 .telefono(estudianteEntity.getTelefono())
                 .sexo(estudianteEntity.getSexo())

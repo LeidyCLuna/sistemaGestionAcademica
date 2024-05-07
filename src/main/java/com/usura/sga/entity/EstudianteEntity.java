@@ -15,11 +15,14 @@ public class EstudianteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idestudiante;
 
-    @Column(name = "nombres_estudiante")
-    private String nombresEstudiante;
+    @Column(name = "tipo_documento")
+    private String tipoDocumento;
 
-    @Column(name = "apellidos_estudiante")
-    private String apellidosEstudiante;
+    private String documento;
+
+    private String nombres;
+
+    private String apellidos;
 
     private String direccion;
 

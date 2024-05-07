@@ -9,8 +9,10 @@ import lombok.*;
 @AllArgsConstructor
 public class EstudianteDto {
     private int idEstudiante;
-    private String nombresEstudiante;
-    private String apellidosEstudiante;
+    private String tipoDocumento;
+    private String documento;
+    private String nombres;
+    private String apellidos;
     private String direccion;
     private String telefono;
     private String sexo;

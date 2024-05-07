@@ -15,8 +15,7 @@ public class CursoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcurso;
 
-    @Column(name = "nombre_curso")
-    private String nombreCurso;
+    private String nombre;
 
     private String titulo;
 

@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 public class CursoDto {
     private int idCurso;
-    private String nombreCurso;
+    private String nombre;
     private String titulo;
     private int horas;
-    private String registro_men;
+    private String registroMen;
 }

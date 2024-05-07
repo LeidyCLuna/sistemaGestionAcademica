@@ -1,7 +1,7 @@
 server:
   error:
     include-message: always
-  port: 9009
+  port: 9000
 
 spring:
   profiles:

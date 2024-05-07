@@ -14,7 +14,7 @@ public class MatriculaDto {
     private int periodo;
     private int nivel;
     private Date fechaMatricula;
-    private int codigoPrograma;
-    private int codigoCurso;
-    private int estudianteCurso;
+    private ProgramaDto idPrograma;
+    private CursoDto idCurso;
+    private EstudianteDto idEstudiante;
 }

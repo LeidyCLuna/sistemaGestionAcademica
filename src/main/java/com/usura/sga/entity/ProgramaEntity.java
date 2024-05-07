@@ -15,8 +15,7 @@ public class ProgramaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int  idprograma;
 
-    @Column(name = "nombre_programa")
-    private String nombrePrograma;
+    private String nombre;
 
     private String titulo;
 
