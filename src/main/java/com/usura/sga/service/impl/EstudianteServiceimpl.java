@@ -1,6 +1,5 @@
 package com.usura.sga.service.impl;
 
-import com.google.gson.Gson;
 import com.usura.sga.dto.EstudianteDto;
 import com.usura.sga.entity.EstudianteEntity;
 import com.usura.sga.mapping.EstudianteMapping;
@@ -17,6 +16,7 @@ import java.util.Optional;
 public class EstudianteServiceimpl implements IEstudianteService {
 
     private final IEstudianteRepository iEstudianteRepository;
+    private final MatriculaServiceImpl matriculaService;
 
     @Override
     public EstudianteDto crearEstudiante(EstudianteDto estudianteDto) {
@@ -24,6 +24,7 @@ public class EstudianteServiceimpl implements IEstudianteService {
         if (consultaEstudianteDto == null) {
             EstudianteEntity crearEstudiante = new EstudianteMapping().estudianteDtoToEstudianteEntity(estudianteDto);
             iEstudianteRepository.saveAndFlush(crearEstudiante);
+            datosMatricula(estudianteDto);
             return new EstudianteMapping().estudianteEntityToEstudianteDTO(crearEstudiante);
         } else {
             return null;
@@ -38,6 +39,15 @@ public class EstudianteServiceimpl implements IEstudianteService {
         } else {
             return null;
         }
+    }
+
+
+    public void datosMatricula(EstudianteDto estudianteDto) {
+        estudianteDto.getMatriculaDto().setIdEstudiante(buscarEstudiante(estudianteDto.getDocumento()));
+        if (estudianteDto.getMatriculaDto().getIdPrograma().getIdPrograma() == 0) {
+            estudianteDto.getMatriculaDto().setIdPrograma(null);
+        }
+        matriculaService.crearMatricula(estudianteDto.getMatriculaDto());
     }
 
 }

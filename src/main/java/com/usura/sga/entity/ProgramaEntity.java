@@ -9,17 +9,18 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "programa")
+@Table(name = "programa_curso")
 public class ProgramaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idprograma_curso")
     private int  idprograma;
 
     private String nombre;
 
     private String titulo;
 
-    private int cretidos;
+    private int creditos;
 
     private int semestres;
 

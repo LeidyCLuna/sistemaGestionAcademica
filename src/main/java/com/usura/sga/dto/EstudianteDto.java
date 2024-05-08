@@ -16,4 +16,5 @@ public class EstudianteDto {
     private String direccion;
     private String telefono;
     private String sexo;
+    private MatriculaDto matriculaDto;
 }

@@ -27,12 +27,8 @@ public class MatriculaEntity {
     private Date fechaMatricula;
 
     @ManyToOne
-    @JoinColumn(name = "idprograma")
+    @JoinColumn(name = "idprograma_curso")
     private ProgramaEntity idPrograma;
-
-    @ManyToOne
-    @JoinColumn(name = "idcurso")
-    private CursoEntity idCurso;
 
     @ManyToOne
     @JoinColumn(name = "idestudiante")
