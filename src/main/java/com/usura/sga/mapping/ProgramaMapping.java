@@ -12,7 +12,7 @@ public class ProgramaMapping {
                 .idprograma(programaDto.getIdPrograma())
                 .nombre(programaDto.getNombre())
                 .titulo(programaDto.getTitulo())
-                .cretidos(programaDto.getCretidos())
+                .creditos(programaDto.getCreditos())
                 .registroMen(programaDto.getRegistroMen())
                 .semestres(programaDto.getSemestres())
                 .build();
@@ -24,7 +24,7 @@ public class ProgramaMapping {
                 .idPrograma(programaEntity.getIdprograma())
                 .nombre(programaEntity.getNombre())
                 .titulo(programaEntity.getTitulo())
-                .cretidos(programaEntity.getCretidos())
+                .creditos(programaEntity.getCreditos())
                 .registroMen(programaEntity.getRegistroMen())
                 .semestres(programaEntity.getSemestres())
                 .build();

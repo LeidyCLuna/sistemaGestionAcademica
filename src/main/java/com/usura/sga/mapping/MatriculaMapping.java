@@ -11,7 +11,6 @@ public class MatriculaMapping {
             MatriculaDto matriculaDto) {
         return MatriculaEntity.builder()
                 .idMatricula(matriculaDto.getIdMatricula())
-                .idCurso(new CursoMapping().cursoDtoToCursoEntity(matriculaDto.getIdCurso()))
                 .idEstudiante(new EstudianteMapping().estudianteDtoToEstudianteEntity(matriculaDto.getIdEstudiante()))
                 .idPrograma(new ProgramaMapping().programaDtoToProgramaEntity(matriculaDto.getIdPrograma()))
                 .fechaMatricula(matriculaDto.getFechaMatricula())
@@ -25,7 +24,6 @@ public class MatriculaMapping {
             MatriculaEntity matriculaEntity) {
         return MatriculaDto.builder()
                 .idMatricula(matriculaEntity.getIdMatricula())
-                .idCurso(new CursoMapping().cursoEntityToCursoDTO(matriculaEntity.getIdCurso()))
                 .idEstudiante(new EstudianteMapping().estudianteEntityToEstudianteDTO(matriculaEntity.getIdEstudiante()))
                 .idPrograma(new ProgramaMapping().programaEntityToProgramaDTO(matriculaEntity.getIdPrograma()))
                 .fechaMatricula(matriculaEntity.getFechaMatricula())
