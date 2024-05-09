@@ -1,8 +1,11 @@
 package com.usura.sga.msgbroker;
 
 import com.rabbitmq.client.*;
+import com.usura.sga.controller.EstudianteController;
 import com.usura.sga.dto.EstudianteDto;
 import com.usura.sga.service.IEstudianteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RabbitQueueConsumer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EstudianteController.class);
 
     @Autowired
     IEstudianteService estudianteService;
@@ -25,7 +30,7 @@ public class RabbitQueueConsumer {
             // Confirmar la recepción del mensaje
             channel.basicAck(tag, false);
         } catch (Exception e) {
-            //log.error("Error al procesar el mensaje de la cola", e);
+            LOGGER.error("Error al procesar el mensaje de la cola", e);
         }
 
     }
