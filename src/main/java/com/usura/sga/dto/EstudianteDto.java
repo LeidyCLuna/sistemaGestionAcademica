@@ -13,9 +13,7 @@ import javax.validation.constraints.NotBlank;
 public class EstudianteDto {
     private int idEstudiante;
     private String tipoDocumento;
-    @NotBlank(message = "El documento del estudiante no puede estar vacío")
     private String documento;
-    @NotBlank(message = "El nombre del estudiante no puede estar vacío")
     private String nombres;
     private String apellidos;
     private String direccion;

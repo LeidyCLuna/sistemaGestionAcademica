@@ -14,4 +14,5 @@ public class RabbitConexionProps {
     private String virtualHost;
     private boolean sslenabled;
     private String brokerTag;
+    private String consumerName;
 }

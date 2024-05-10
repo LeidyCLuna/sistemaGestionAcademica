@@ -13,7 +13,7 @@ public class MatriculaDto {
     private int año;
     private int periodo;
     private int nivel;
-    private Date fechaMatricula;
+    private String fechaMatricula;
     private ProgramaDto idPrograma;
     private EstudianteDto idEstudiante;
 }
