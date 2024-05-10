@@ -24,7 +24,7 @@ public class MatriculaEntity {
 
     private int nivel;
     @Column(name = "fecha_matricula")
-    private Date fechaMatricula;
+    private String fechaMatricula;
 
     @ManyToOne
     @JoinColumn(name = "idprograma_curso")

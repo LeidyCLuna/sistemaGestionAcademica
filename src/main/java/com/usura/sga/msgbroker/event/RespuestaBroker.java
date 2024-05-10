@@ -1,11 +1,13 @@
 package com.usura.sga.msgbroker.event;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@Builder
 public class RespuestaBroker {
     protected boolean solicitudExito;
     protected String mensajeRespuesta;

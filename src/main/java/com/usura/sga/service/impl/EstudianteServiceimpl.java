@@ -1,5 +1,7 @@
 package com.usura.sga.service.impl;
 
+import com.usura.sga.Exception.FinalizacionProcesoExcepcion;
+import com.usura.sga.Exception.RelanzarProcesoExcepcion;
 import com.usura.sga.dto.EstudianteDto;
 import com.usura.sga.dto.MatriculaDto;
 import com.usura.sga.entity.EstudianteEntity;
@@ -9,13 +11,11 @@ import com.usura.sga.service.IEstudianteService;
 import com.usura.sga.service.IMatriculaService;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+
 import javax.validation.Valid;
 
 
@@ -36,19 +36,24 @@ public class EstudianteServiceimpl implements IEstudianteService {
                 return null;
             }
 
+
             EstudianteEntity crearEstudiante = new EstudianteMapping().estudianteDtoToEstudianteEntity(estudianteDto);
             iEstudianteRepository.saveAndFlush(crearEstudiante);
 
-            if(estudianteDto.getMatriculaDto()!= null) {
-                LOGGER.info("No trae datos de matricula, por tal motivo solo se crea el estudiante.");
+            if (estudianteDto.getMatriculaDto() != null) {
+                LOGGER.info("Se cargan datos de matricula, e informacion del estudiante.");
                 datosMatricula(estudianteDto);
-            }
+            } else LOGGER.info("No se cargan datos de matricula, por tal motivo solo se carga datos del estudiante.");
+
 
             return new EstudianteMapping().estudianteEntityToEstudianteDTO(crearEstudiante);
+        } catch (DataIntegrityViolationException e) {
+            LOGGER.error("Error al crear estudiante debido a un problema de datos al persistir en la base de datos.", e);
+            throw new FinalizacionProcesoExcepcion("Ocurrió un error al crear el estudiante debido a un problema de acceso a la base de datos");
         } catch (DataAccessException e) {
-            LOGGER.error("Error al crear estudiante debido a un problema de acceso a la base de datos.", e);
+            LOGGER.error("Error al crear estudiante debido a un problema de conexion a la base de datos.", e);
             throw new RuntimeException("Ocurrió un error al crear el estudiante debido a un problema de acceso a la base de datos");
-        } catch (Exception e) {
+        }  catch (Exception e) {
             LOGGER.error("Error al crear estudiante.", e);
             throw new RuntimeException("Ocurrió un error al crear el estudiante");
         }

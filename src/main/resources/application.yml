@@ -40,3 +40,4 @@ rabbitmq:
       queue: sga.estudiantes.registro.queue
       exchange: sga.estudiantes.registro.ex
       routingKey: sga.estudiantes.registro.queue
+
